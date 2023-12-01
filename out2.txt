@@ -1,0 +1,42 @@
+#DEFINE _CRT_SECURE_NO_WARNINGS
+#INCLUDE <STDIO.H>
+#INCLUDE <WINDOWS.H>
+#DEFINE MAX_LEN 80
+CHAR S[MAX_LEN];
+
+
+VOID MAIN() {
+	SETCONSOLECP(1251);
+	SETCONSOLEOUTPUTCP(1251);
+	PRINTF("Кобин Владимир\N");
+	PRINTF("ЛР23 задача 2\N");
+
+	FILE* FIN = FOPEN("C:\\USERS\\VKOBI\\ONEDRIVE\\DESKTOP\\LAB_23\\TEXT2.TXT", "RT");
+	IF (FIN == NULL) {
+		PRINTF("входной файл не найден");
+		RETURN;
+	}
+
+	FILE* FOUT = FOPEN("C:\\USERS\\VKOBI\\ONEDRIVE\\DESKTOP\\LAB_23\\OUT2.TXT", "WT");
+	IF (FOUT == NULL) {
+		PRINTF("выходной файл не найден");
+		RETURN;
+	}
+
+
+	WHILE (!FEOF(FIN)) {
+		IF (FGETS(S, MAX_LEN - 1, FIN) != NULL) {
+			FOR (INT I = 0; S[I] != '\0'; I++) {
+				S[I] = TOUPPER(S[I]);
+			}
+			FPRINTF(FOUT, "%S", S);
+			PRINTF(">>%S<<\N", S);
+		}
+	}
+
+
+	FCLOSE(FIN);
+	FCLOSE(FOUT);
+
+	PRINTF("ЛР23 задача 2 FINISH!\N");
+}

@@ -1,0 +1,47 @@
+_define _CRT_SECURE_NO_WARNINGS
+_include _stdio_h_
+_include _Windows_h_
+
+_define MAX_LEN 80
+char s_MAX_LEN__
+
+
+void main__ _
+	SetConsoleCP_1251__
+	SetConsoleOutputCP_1251__
+
+	printf__Кобин Владимир_n___
+	printf__ЛР23 Задача 3_n___
+
+	FILE_ fin _ fopen__C___Users__vkobi__OneDrive__Desktop__lab_23__text3_txt__ _rt___
+	if _fin __ NULL_ _
+		printf__Входной файл не найден___
+		return_
+	_
+
+
+	FILE_ fout _ fopen__C___Users__vkobi__OneDrive__Desktop__lab_23__out3_txt__ _wt___
+	if _fout __ NULL_ _
+		printf__Выходной файл не создался___
+		return_
+	_
+
+
+	while __feof_fin__ _
+		if _fgets_s_ MAX_LEN _ 1_ fin_ __ NULL_ _
+			for _int i _ 0_ s_i_ __ __0__ i___ _
+				if _islower_s_i___ _
+					s_strlen_s_ _ 1_ _ ____
+				_
+			_
+			fprintf_fout_ __s__ s__
+			printf_____s___n__ s__
+		_
+	_
+
+	fclose_fin__
+	fclose_fout__
+
+	printf__ЛР23 задача 3 FINISH____n___
+_
+
